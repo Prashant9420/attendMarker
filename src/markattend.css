@@ -1,0 +1,40 @@
+#container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+    /* border: 2px solid red; */
+}
+#attendanceForm{
+    /* border:2px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+#nameInput{
+    font-size: larger;
+    padding: 10px;
+    margin:10px
+}
+form button{
+    margin:10px;
+    height: 40px;
+    width: 50%;
+    border-radius: 10px;
+    font-size: large;
+}
+.addUserButton{
+    width:15%;
+    padding:10px;
+    border-radius:20px;
+}
+
+@media only screen and (max-width: 550px) {
+    .addUserButton{
+        width:80%;
+    }
+}
