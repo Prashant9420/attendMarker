@@ -13,7 +13,7 @@ const MarkAttend = () => {
             "Content-Type":"application/json"
         },
         body:JSON.stringify({
-            enrollment:"CDRC-"+enroll
+            uniqueID:"CDRC-"+enroll
         })
         });
         if(resp.status==200){
@@ -31,7 +31,7 @@ const MarkAttend = () => {
     <div id="container">
         <h1>Attendance Marker</h1>
         <form id="attendanceForm" onSubmit={(e)=>markPresent(e)}>
-            <input type="text" name="name" id="nameInput" placeholder="Enter Enrollment-Id" onChange={(e)=>setEnroll(e.target.value)}></input>
+            <input type="text" name="name" id="nameInput" placeholder="Enter Unique ID" onChange={(e)=>setEnroll(e.target.value)}></input>
             <button type="submit">Mark</button>
         </form>
         <button type="submit" className='addUserButton' onClick={()=>navigate('/')}>Home</button>

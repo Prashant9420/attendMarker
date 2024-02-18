@@ -13,7 +13,6 @@ const Qrs = () => {
       },
     });
     const info = await resp.json();
-    console.log(info);
     setData(info);
   };
   useEffect(() => {
@@ -33,10 +32,10 @@ const Qrs = () => {
           }}
         >
           <img
-            src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${baseUrl}${user.enrollment}`}
+            src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${baseUrl}${user.uniqueID}`}
             style={{ padding: "50px", height: "300px", width: "300px" }}
           ></img>
-          <h2>{user.enrollment}</h2>
+          <h2>{user.uniqueID}</h2>
           <h2>{user.name}</h2>
         </div>
       ))}

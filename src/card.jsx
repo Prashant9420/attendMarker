@@ -21,18 +21,18 @@ export default function Card() {
     getUser();
   },[])
   return (
-    <MDBCard>
-      <MDBListGroup flush>
+    <MDBCard style={{padding:"10%"}}>
+      <img src="../wall.png"  alt="..." />
+      <MDBListGroup flush style={{display:"grid",placeContent:"center",gridTemplateColumns:"1fr 1fr",borderRadius:"0"}}>
         {(data)?<><MDBListGroupItem><strong>Name: </strong> {data.name}</MDBListGroupItem>
-        <MDBListGroupItem><strong>Enrollment: </strong>{data.enrollment}</MDBListGroupItem>
-        <MDBListGroupItem><strong>Phone: </strong>{data.phone}</MDBListGroupItem>
-        <MDBListGroupItem><strong>Attendance: </strong>{data.attendance}</MDBListGroupItem>
         <MDBListGroupItem><strong>Authority: </strong>{data.authority}</MDBListGroupItem>
         <MDBListGroupItem><strong>Designation: </strong>{data.designation}</MDBListGroupItem>
+        <MDBListGroupItem><strong>Unique ID: </strong>{data.uniqueID}</MDBListGroupItem>
         </>
         :
-        <h1>User Not found!!</h1>}
+        <h1>Loading...</h1>}
       </MDBListGroup>
+      {(data)&&<MDBListGroupItem style={{display:"flex",alignContent:"center",justifyContent:"center",width:"90%",gap:"8px",margin:"1%",left:"4%"}}><strong>Attendance: </strong>{data.attendance}</MDBListGroupItem>}
     </MDBCard>
   );
 }

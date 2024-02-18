@@ -14,9 +14,8 @@ import { useNavigate } from "react-router-dom";
 function App() {
   // Define state variables for form inputs
   const [name, setName] = useState("");
-  const [enrollment, setEnrollment] = useState("");
+  const [uniqueID, setuniqueID] = useState("");
   const [designation, setDesignation] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
   const [authority, setAuthority] = useState("");
   const navigate=useNavigate();
   // Function to handle form submission
@@ -25,15 +24,14 @@ function App() {
     // Log form inputs to the console
     if (
       name === "" ||
-      enrollment === "" ||
+      uniqueID === "" ||
       designation === "" ||
-      phoneNumber === "" ||
       authority === ""
     ) {
       alert("Please fill all the fields");
       return;
     }
-    let enroll="CDRC-"+enrollment;
+    let enroll="CDRC-"+uniqueID;
     const resp=await fetch("https://attendance-marker-backend.onrender.com/api/user/signup",{
       method:"POST",
       headers:{
@@ -41,15 +39,13 @@ function App() {
       },
       body:JSON.stringify({
         name,
-        enrollment:enroll,
+        uniqueID:enroll,
         designation,
-        phone:phoneNumber,
         authority
       })
     });
     const data=await resp.json();
-    console.log(data);
-    alert("User Added Successfully")
+    alert(data.msg);
     
   };
 
@@ -78,11 +74,11 @@ function App() {
               />
               <MDBInput
                 wrapperClass="mb-4"
-                label="Enrollment"
-                id="enrollmentInput"
+                label="Unique ID"
+                id="uniqueIDInput"
                 type="text"
-                value={enrollment}
-                onChange={(e) => setEnrollment(e.target.value)}
+                value={uniqueID}
+                onChange={(e) => setuniqueID(e.target.value)}
               />
               <MDBInput
                 wrapperClass="mb-4"
@@ -91,14 +87,6 @@ function App() {
                 type="text"
                 value={designation}
                 onChange={(e) => setDesignation(e.target.value)}
-              />
-              <MDBInput
-                wrapperClass="mb-4"
-                label="Phone Number"
-                id="phoneNumberInput"
-                type="number"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
               />
               <MDBInput
                 wrapperClass="mb-4"
