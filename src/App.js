@@ -29,11 +29,14 @@ function App() {
           "Content-Type":"application/json"
         }
       });
+      const data=await resp.json();
       if(res.status==200){
         alert("Attendance reset successfully");
       }
       else{
         alert("Something went wrong!");
+        console.log(resp);
+        console.log(data);
       }
     }
 
