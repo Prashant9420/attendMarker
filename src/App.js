@@ -24,7 +24,7 @@ function App() {
     const res=window.confirm("Are you sure you want to reset the attendance?");
     if(res){
       const resp=await fetch("https://attendance-marker-backend.onrender.com/api/user/resetAttendance",{
-        method:"POST",
+        method:"PATCH",
         headers:{
           "Content-Type":"application/json"
         }
