@@ -32,7 +32,11 @@ form button{
     padding:10px;
     border-radius:20px;
 }
-
+.custom-list-item {
+    display: flex;
+    gap: 3px;
+  }
+  
 @media only screen and (max-width: 550px) {
     .addUserButton{
         width:80%;

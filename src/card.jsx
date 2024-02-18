@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import { MDBCard, MDBListGroup, MDBListGroupItem } from 'mdb-react-ui-kit';
 import { useParams } from 'react-router-dom';
-
+import CustomListItem from './CustomListItem';
 export default function Card() {
   let {enroll}=useParams();
   const [data,setData] = useState();
@@ -15,7 +15,6 @@ export default function Card() {
     });
     const data=await resp.json();
     setData(data);
-    console.log(data);
   }
   useEffect(()=>{
     getUser();
@@ -24,15 +23,19 @@ export default function Card() {
     <MDBCard style={{padding:"10%"}}>
       <img src="../wall.png"  alt="..." />
       <MDBListGroup flush style={{display:"grid",placeContent:"center",gridTemplateColumns:"1fr 1fr",borderRadius:"0"}}>
-        {(data)?<><MDBListGroupItem><strong>Name: </strong> {data.name}</MDBListGroupItem>
-        <MDBListGroupItem><strong>Authority: </strong>{data.authority}</MDBListGroupItem>
-        <MDBListGroupItem><strong>Designation: </strong>{data.designation}</MDBListGroupItem>
-        <MDBListGroupItem><strong>Unique ID: </strong>{data.uniqueID}</MDBListGroupItem>
+        {(data)?<>
+        <CustomListItem label="Name" value={data.name} />
+        <CustomListItem label="Region" value={data.region} />
+        
+    <CustomListItem label="Designation" value={data.designation} />
+    <CustomListItem label="Unique ID" value={data.uniqueID} />
+    <CustomListItem label="Authority" value={data.authority} />
+    
+    <CustomListItem label="Attendance" value={data.attendance} />
         </>
         :
         <h1>Loading...</h1>}
       </MDBListGroup>
-      {(data)&&<MDBListGroupItem style={{display:"flex",alignContent:"center",justifyContent:"center",width:"90%",gap:"8px",margin:"1%",left:"4%"}}><strong>Attendance: </strong>{data.attendance}</MDBListGroupItem>}
     </MDBCard>
   );
 }

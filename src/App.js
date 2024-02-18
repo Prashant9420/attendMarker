@@ -17,6 +17,7 @@ function App() {
   const [uniqueID, setuniqueID] = useState("");
   const [designation, setDesignation] = useState("");
   const [authority, setAuthority] = useState("");
+  const [region, setRegion] = useState("");
   const navigate=useNavigate();
   // Function to handle form submission
   const handleSubmit = async (e) => {
@@ -26,7 +27,8 @@ function App() {
       name === "" ||
       uniqueID === "" ||
       designation === "" ||
-      authority === ""
+      authority === ""  ||
+      region === ""
     ) {
       alert("Please fill all the fields");
       return;
@@ -41,7 +43,8 @@ function App() {
         name,
         uniqueID:enroll,
         designation,
-        authority
+        authority,
+        region
       })
     });
     const data=await resp.json();
@@ -95,6 +98,14 @@ function App() {
                 type="text"
                 value={authority}
                 onChange={(e) => setAuthority(e.target.value)}
+              />
+               <MDBInput
+                wrapperClass="mb-4"
+                label="Region"
+                id="regionInput"
+                type="text"
+                value={region}
+                onChange={(e) => setRegion(e.target.value)}
               />
               {/* Call handleSubmit function on button click */}
               <MDBBtn
