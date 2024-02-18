@@ -19,6 +19,25 @@ function App() {
   const [authority, setAuthority] = useState("");
   const [region, setRegion] = useState("");
   const navigate=useNavigate();
+  // function to reset the attendance
+  const resetAttendance= async ()=>{
+    const res=window.confirm("Are you sure you want to reset the attendance?");
+    if(res){
+      const resp=await fetch("https://attendance-marker-backend.onrender.com/api/user/resetAttendance",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        }
+      });
+      if(res.status==200){
+        alert("Attendance reset successfully");
+      }
+      else{
+        alert("Something went wrong!");
+      }
+    }
+
+  }
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -110,7 +129,7 @@ function App() {
               {/* Call handleSubmit function on button click */}
               <MDBBtn
                 color="success"
-                className="mb-4"
+                className="mb-4 me-4"
                 size="lg"
                 onClick={handleSubmit}
               >
@@ -118,7 +137,7 @@ function App() {
               </MDBBtn>
               <MDBBtn
                 color="success"
-                className="mb-4 m-3"
+                className="mb-4"
                 size="lg"
                 onClick={()=>navigate('/mark-attend')}
               >
@@ -126,11 +145,19 @@ function App() {
               </MDBBtn>
               <MDBBtn
                 color="success"
-                className="mb-4"
+                className="mb-4 me-4"
                 size="lg"
                 onClick={()=>navigate('/all-qrs')}
               >
                 show all Qr-Codes
+              </MDBBtn> 
+              <MDBBtn
+                color="success"
+                className="mb-4"
+                size="lg"
+                onClick={resetAttendance}
+              >
+                Reset Attendance
               </MDBBtn> 
             </MDBCardBody>
           </MDBCard>
