@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Qrs = () => {
   const [data, setData] = useState();
   let navigate = useNavigate();
-  const baseUrl = "https://attendance-marker-backend.onrender.com/api/user/";
+  const baseUrl = "https://attend-marker.vercel.app/user/";
   const getAllUsers = async () => {
     const resp = await fetch("https://attendance-marker-backend.onrender.com/api/user/getAllUsers", {
       method: "GET",
