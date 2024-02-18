@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Qrs = () => {
   const [data, setData] = useState();
+  let navigate = useNavigate();
   const baseUrl = "http://localhost:3001/user/";
   const getAllUsers = async () => {
     const resp = await fetch("https://attendance-marker-backend.onrender.com/api/user/getAllUsers", {
@@ -18,14 +20,16 @@ const Qrs = () => {
     getAllUsers();
   }, []);
   return (
-    <div style={{ display: "flex", flexWrap: "wrap" }}>
+    <>
+    <div style={{ display: "flex", flexWrap: "wrap",padding:"3%",margin:"5%",gap:"2%"}}>
       {data?.map((user) => (
         <div
-          style={{
-            border: "1px solid black",
+          style={{marginTop:"1%"
+ ,           border: "1px solid black",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            
           }}
         >
           <img
@@ -36,7 +40,11 @@ const Qrs = () => {
           <h2>{user.name}</h2>
         </div>
       ))}
+   
     </div>
+     <button type="submit" style={{width:"100px",display:"flex",alignItems:"center",justifyContent:"center",marginLeft:"40%",marginBottom:"10px"}} className='addUserButton' onClick={()=>navigate('/')}>Home</button></>
+    
+    
   );
 };
 

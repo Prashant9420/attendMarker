@@ -32,9 +32,9 @@ const MarkAttend = () => {
         <h1>Attendance Marker</h1>
         <form id="attendanceForm" onSubmit={(e)=>markPresent(e)}>
             <input type="text" name="name" id="nameInput" placeholder="Enter Enrollment-Id" onChange={(e)=>setEnroll(e.target.value)}></input>
-            <button type="submit">Submit</button>
+            <button type="submit">Mark</button>
         </form>
-        <button type="submit" className='addUserButton' onClick={()=>navigate('/')}>Add User</button>
+        <button type="submit" className='addUserButton' onClick={()=>navigate('/')}>Home</button>
     </div>
   )
 }
