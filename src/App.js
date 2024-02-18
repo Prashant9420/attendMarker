@@ -58,7 +58,7 @@ function App() {
         <MDBCol lg="8">
           <MDBCard className="my-5 rounded-3" style={{ maxWidth: "600px" }}>
             <MDBCardImage
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
+              src="../wall.png"
               className="w-100 rounded-top"
               alt="Sample photo"
             />
