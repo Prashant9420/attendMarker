@@ -9,9 +9,10 @@ import {
   MDBCol,
   MDBInput,
 } from "mdb-react-ui-kit";
-import Card from "./card";
+import  "./App.css";
 import { useNavigate } from "react-router-dom";
 function App() {
+
   // Define state variables for form inputs
   const [name, setName] = useState("");
   const [uniqueID, setuniqueID] = useState("");
@@ -73,9 +74,9 @@ function App() {
   };
 
   return (
-    <MDBContainer fluid>
+    <MDBContainer fluid className="back">
       <MDBRow className="d-flex justify-content-center align-items-center">
-        <MDBCol lg="8">
+        <MDBCol lg="5">
           <MDBCard className="my-5 rounded-3" style={{ maxWidth: "600px" }}>
             <MDBCardImage
               src="../wall.png"
