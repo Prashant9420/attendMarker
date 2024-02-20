@@ -29,7 +29,7 @@ const MarkAttend = () => {
     }
   return (
     <div id="container">
-        <h1>Attendance Marker</h1>
+        <h1 className='some'>Attendance Marker</h1>
         <form id="attendanceForm" onSubmit={(e)=>markPresent(e)}>
             <input type="text" name="name" id="nameInput" placeholder="Enter Unique ID" onChange={(e)=>setEnroll(e.target.value)}></input>
             <button type="submit">Mark</button>
