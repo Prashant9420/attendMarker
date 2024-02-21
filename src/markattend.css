@@ -1,10 +1,10 @@
 #container{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     padding: 5%;
     flex-direction: column;
-    margin-bottom: 4%;
+    /* margin-bottom: 4%; */
     justify-content: center;
     align-items: center;
     background-image: url('../public/image.png');
@@ -12,13 +12,31 @@
     background-repeat: no-repeat;
     /* border: 2px solid red; */
 }
-#attendanceForm{
-    /* border:2px solid red; */
-    /* margin-bottom: 2%; */
+#attendancebox{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+ margin-top: 35%;
 
+}
+button{
+background-color: black;  
+color:white; 
+}
+input{
+    border: 1px solid black;
+    border-radius: 10px;
+}
+#attendanceForm{
+    display: block;
+    /* flex-direction: row; */
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 #nameInput{
     font-size: larger;
@@ -26,8 +44,11 @@
     margin:10px
 }
 .some{
+    /* text-decoration: underline; */
+    font-size: large;
+    text-align: center;
     color: black;
-    margin-top: 38%;
+    /* margin-top: 38%; */
 }
 form button{
     margin:10px;
@@ -38,19 +59,12 @@ form button{
     /* padding: 3%; */
 
 }
-.addUserButton{
-    width:10%;
-    padding:10px;
-    /* padding-bottom: 2%; */
-    border-radius:20px;
-}
+
 .custom-list-item {
     display: flex;
     gap: 3px;
   }
   
-@media only screen and (max-width: 550px) {
-    .addUserButton{
-        width:80%;
-    }
+.btns{
+    display: flex;
 }

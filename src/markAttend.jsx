@@ -29,13 +29,19 @@ const MarkAttend = () => {
     }
   return (
     <div id="container">
-        <h1 className='some'>Attendance Marker</h1>
+        <div id="attendancebox">
+      
         <form id="attendanceForm" onSubmit={(e)=>markPresent(e)}>
+        <h1 className='some'>Attendance Marker</h1>
             <input type="text" name="name" id="nameInput" placeholder="Enter Unique ID" onChange={(e)=>setEnroll(e.target.value)}></input>
+          <div className="btns">
             <button type="submit">Mark</button>
+            <button type="submit" onClick={()=>navigate('/')}>Home</button></div>
+
         </form>
-        <button type="submit" className='addUserButton' onClick={()=>navigate('/')}>Home</button>
-    </div>
+  
+        </div>
+          </div>
   )
 }
 
