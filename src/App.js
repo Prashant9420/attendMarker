@@ -76,7 +76,7 @@ function App() {
   return (
     <MDBContainer fluid className="back">
       <MDBRow className="d-flex justify-content-center align-items-center">
-        <MDBCol lg="5">
+        <MDBCol id="signupbox" lg="5">
           <MDBCard className="my-5 rounded-3" style={{ maxWidth: "600px" }}>
             <MDBCardImage
               src="../wall.png"
